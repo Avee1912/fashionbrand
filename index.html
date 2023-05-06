@@ -1,0 +1,482 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Encode+Sans+SC:wght@300&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=GFS+Didot&family=Nunito+Sans&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Nanum+Myeongjo&display=swap" rel="stylesheet">
+    <style>
+        *{
+            list-style: none;
+            margin:0;
+            padding:0;
+            text-decoration: none;
+            box-sizing: border-box;
+        }
+        body{
+            font-family: 'Encode Sans SC', sans-serif;
+            background-color: #e7e7e7;
+        }
+
+        header{
+            font-family: 'Nunito Sans', sans-serif;
+            height:80px;
+            width: 100%;
+            background-color: #1b1b1b;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 100px;
+        }
+
+        .logo{
+            font-size:28px;
+            font-weight: bold;
+            color:#fefefe;
+        }
+
+        .hamburger{
+            display: none;
+        }
+
+        .nav-bar ul{
+            display: flex;
+        }
+
+        .nav-bar ul li a{
+            display: block;
+            background-color: #1b1b1b;
+            font-size:20px;
+            padding: 10px 25px;
+            color:#e7e7e7;
+            border-radius: 50px;
+            transition-duration: 0.5s;
+            margin:0 5px;
+        }
+
+        .nav-bar ul li a:hover{
+            color:black;
+            background-color: #fefefe;
+        }
+
+        .nav-bar ul li a.active{
+            color:black;
+            background-color: #fefefe;
+
+        }
+
+        @media only screen and (max-width:1320px){
+            header{
+                padding:0 50px;
+            }
+        }
+
+        @media only screen and (max-width:1100px){
+            header{
+                padding:0 30px;
+            }
+        }
+
+        @media only screen and (max-width:900px){
+            .hamburger{
+                display: block;
+                cursor:pointer;
+            }
+
+            .hamburger .line{
+                width:30px;
+                height: 3px;
+                background-color: #fefefe;
+                margin:6px 0;
+            }
+
+            .nav-bar{
+                z-index: 2;
+                height: 0;
+                position:absolute;
+                top:80px;
+                left:0;
+                right: 0;
+                width:100vw;
+                background-color: #1b1b1b;
+                transition:0.2s;
+                transition-timing-function: ease-out;
+            }
+            
+            .nav-bar.active{
+                height: 450px;
+                z-index: 20;
+            }
+
+            .nav-bar ul{
+                display: block;
+                width: fit-content;
+                margin: 80px auto 0 auto;
+                text-align:center;
+                transition: 0.3s;
+                transition-timing-function: ease-out;
+                opacity: 0;
+            }
+
+            .nav-bar.active ul{
+                opacity: 1;
+            }
+
+            .nav-bar ul li a{
+                margin-bottom: 12px;
+            }
+
+            .lay {
+                background: url("Brown\ Minimalist\ Casual\ Fashion\ Collection\ -\ Presentation.png")center/cover;
+                height: 40vh;
+                width:100%;
+                display: grid;
+                grid-template-columns: 1fr 1fr 80px 1fr 1fr;
+                grid-template-rows: 1fr 1fr 0.5fr;
+            }
+
+            .webx{
+                grid-area: 3/3/4/4;
+                height: 30px;
+                width: 80px;
+                padding: 5px;
+                margin: 3%;
+                z-index: 5;
+                
+                
+            }
+            #covbut{
+                grid-area: 3/3/4/4;
+                height: 30px;
+                width: 80px;
+                padding: 5px;
+                margin: 3%;
+                border:#b3aba0;
+                border:5px;
+
+                background-color: #1b1b1b;
+    
+                color:#b3aba0;
+                font-family: 'Nunito Sans', sans-serif;
+                font-weight: 300;
+                transition-duration: 0.5s;
+                opacity: 1;
+            
+            }
+
+
+            #covbut:hover{
+                background-color:#b3aba0;
+                color:#1b1b1b;
+                transition: 0.3s;
+            }
+
+            .explorecon{
+                display: flex;
+                height: fit-content;
+                margin-top: 30px;
+                width: 100%;
+                justify-content: center;
+                align-items: center;
+            }
+
+            h2.txttitle{
+                font-weight: 700px;
+            }
+
+            .explorecon .exline{
+                position: block;
+                top:10px;
+                background-color: black;
+            }
+
+            .linedown{
+                display: flex;
+                width: 100%;
+                height: 30px;
+                align-items: center;
+                justify-content: center;
+
+            }
+
+            .linedown .linedow{
+                margin-top: 10px;
+                padding-top: 1px;
+                height: 2px;
+                width: 10%;
+                background-color: black;
+            }
+            
+
+            .maincon{
+                height:fit-content;
+                display: grid;
+                grid-template-columns: 0.5fr 1fr 0.5fr;
+                grid-template-rows: 20px repeat(5, 1fr 50px 25px 50px);
+
+            }
+
+            img{
+                margin:0;
+                padding: 0;
+                object-fit: center;
+                border-radius: 10px;
+                height: 250px;
+                width: 260px;
+                padding-bottom: 12px;
+                
+            }
+            
+
+            .watch{
+                grid-area: 2/2/3/3;
+            }
+
+            .watchcon{
+                grid-area:3/2/4/3;
+                display: block;
+                margin-top: 2%;
+                font-family: 'Nanum Myeongjo', serif;
+                font-size: 85%;
+                text-align: left;
+            }
+            .price{
+                margin-top:10px;
+                color:rgb(71, 69, 69);
+                font-size:100%;
+                
+            }
+
+            .watchcon .price{
+                grid-area: 4/2/5/3;
+                text-align: left;
+            }
+
+            .shoes{
+                object-fit: cover;
+                
+                grid-area:6/2/7/3;
+            }
+
+            .shoescon{
+                grid-area:7/2/8/3;
+                display: block;
+                margin-top: 2%;
+                font-family: 'Nanum Myeongjo', serif;
+                font-size: 85%;
+                text-align: left;
+                text-transform: uppercase;
+
+            }
+
+            .shoescon .price{
+                text-transform: capitalize;
+                grid-area: 8/2/9/3;
+                text-align: left;
+
+            }
+
+            .men{
+                grid-area:10/2/10/3;
+            }
+
+            .mencon{
+                grid-area:11/2/11/3;
+                display: block;
+                margin-top: 2%;
+                font-family: 'Nanum Myeongjo', serif;
+                font-size: 85%;
+                text-align: left;
+                text-transform: uppercase;
+            }
+
+            .mencon .price{
+                text-transform: capitalize;
+                grid-area: 12/2/13/3;
+                text-align: left;
+            }
+
+            .woman{
+                grid-area:14/2/15/3;
+            }
+
+            .womancon{
+                grid-area:15/2/16/3;
+                display: block;
+                margin-top: 2%;
+                font-family: 'Nanum Myeongjo', serif;
+                font-size: 85%;
+                text-align: left;
+                text-transform: uppercase;
+            }
+
+            .womancon .price{
+                text-transform: capitalize;
+                grid-area: 16/2/17/3;
+                text-align: left;
+            }
+
+            .bag{
+                grid-area:18/2/19/3;
+            }
+
+            .bagcon{
+                grid-area:19/2/20/3;
+                display: block;
+                margin-top: 2%;
+                font-family: 'Nanum Myeongjo', serif;
+                font-size: 85%;
+                text-align: left;
+                text-transform: uppercase;
+            }
+
+            .bagcon .price{
+                text-transform: capitalize;
+                grid-area: 20/2/21/3;
+                text-align: left;
+            }
+
+            .back{
+                height: 100px;
+                width: 100%;
+                background-color: #1b1b1b;
+            }
+
+            .back .conele{
+                color: #ffffff;
+                padding-top: 25px;
+                display: flex;
+                justify-content: space-evenly;
+                align-items: center;
+            }
+
+            .back .des{
+                color: #ffffff;
+                font-weight: 1000;
+                margin-left:22%;
+                margin-top:4%;
+
+            }
+
+
+           
+
+
+            
+
+        }
+
+
+
+
+
+    </style>
+</head>
+<body>
+    <header>
+        <div class="logo">Avixix</div>
+        <div class="hamburger">
+            <div class="line"></div>
+            <div class="line"></div>
+            <div class="line"></div>
+        </div>
+        <nav class="nav-bar">
+            <ul>
+                <li>
+                    <a href="" class="active">Home</a>
+                </li>
+                <li>
+                    <a href="">Clothing</a>
+                </li>
+                <li>
+                    <a href="">Footwear</a>
+                </li>
+                <li>
+                    <a href="">Accessories</a>
+                </li>
+                <li>
+                    <a href="">contact us</a>
+                </li>
+            </ul>
+        </nav>
+        
+    </header>
+    <div class="lay">
+
+        <a class="webx" href="https://www.google.com/">
+            <button id="covbut">see more</button>
+        </a>
+    </div>
+    <div class="explorecon">
+        <h2 class="txttitle">explore us</h2>
+    </div>
+    <div class="linedown">
+        <div class="linedow"></div>
+    </div>
+
+    <div class="maincon">
+        <image class="watch" src="https://transform.octanecdn.com/crop/700x650/https://dynamix-cdn.s3.amazonaws.com/jacobandcocom/jacobandcocom_743536282.jpg"/>
+        <div class="watchcon"><h4>BUGGATI CHIRON TOURBILLON ORANGE SAPPHIRE CRYSTAL</h4>
+            <h6 class="price">Price: $1,500,000</h6>
+        </div>
+        <image class="shoes" src="https://media.balmain.com/image/upload/f_auto,q_auto,dpr_auto/w_1680/sfcc/balmain/hi-res/BN1VF724KJFL4KBF?_i=AG" />
+        <div class="shoescon"><h4>Unicorn trainers in neoprene and rubberised leather</h4>
+            <h6 class="price">Price: $1,100</h6>
+        </div>
+        <image class="men" src="https://www.versace.com/dw/image/v2/ABAO_PRD/on/demandware.static/-/Sites-ver-master-catalog/default/dwc2883a4d/original/90_1011032-1A07734_2UL90_10_VersaceAlloverJacket-Jackets-versace-online-store_0_0.jpg?sw=748&sh=1050&sm=fit" />
+        <div class="mencon"><h4>VERSACE ALLOVER JACKET</h4>
+            <h6 class="price">Price: $3,200</h6>
+        </div>
+
+        <image class="woman" src="https://www.versace.com/dw/image/v2/ABAO_PRD/on/demandware.static/-/Sites-ver-master-catalog/default/dw9abe6b32/original/90_1010883-1A08206_2PL50_10_VersaceAlloverShortTrenchCoat-Coats-versace-online-store_0_0.jpg?sw=748&sh=1050&sm=fit" />
+        <div class="womancon"><h4>VERSACE ALLOVER SHORT TRENCH COAT</h4>
+            <h6 class="price">Price: $4,438</h6>
+        </div>
+
+        <image class="bag" src="https://www.versace.com/dw/image/v2/ABAO_PRD/on/demandware.static/-/Sites-ver-master-catalog/default/dwb05cf6ef/original/90_DBFI040-1A07951_2N24V_20_VersaceAlloverLaMedusaSmallHandbag-LaMedusaBag-versace-online-store_1_0.jpg?sw=1440&sh=2000&sm=fit&sfrm=jpg" />
+        <div class="bagcon"><h4>VERSACE ALLOVER LA MEDUSA SMALL HANDBAG</h4>
+            <h6 class="price">Price: $2,408</h6>
+        </div>
+    </div>
+
+    <footer>
+        <div class="back">
+            <div class="conele">
+                <h5>website</h5>
+                <h5>gmail</h5>
+                <h5>twitter</h5>
+            </div>
+            <div class="des">©avinash G. ©AVIXIX-fashionclothing</div>
+        </div>
+    </footer>
+
+
+
+
+
+
+
+
+
+
+    <script>
+        hamburger=document.querySelector(".hamburger");
+        hamburger.onclick=function(){
+            navBar= document.querySelector(".nav-bar");
+            navBar.classList.toggle("active");
+
+        }
+
+    </script>
+    
+</body>
+</html>
